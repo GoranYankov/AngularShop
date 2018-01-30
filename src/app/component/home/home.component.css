@@ -1,0 +1,9 @@
+.second {
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .slider-767 {
+        display: none;
+    }
+}

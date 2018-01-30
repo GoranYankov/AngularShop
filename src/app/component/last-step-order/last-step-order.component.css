@@ -1,0 +1,17 @@
+.prime {
+    margin-top: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 5px 10px 20px #888888;
+}
+
+h2 {
+    margin-top: 5px;
+    font-weight: bold;
+    
+}
+
+.alert-success {
+    margin: 20px 0;
+}

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-8">
+      <article>
+      <div class="col-md-12 col-lg-12" >
+        <ul class="media-list main-list">
+          <li class="media" *ngFor="let article of articles">
+              <a [routerLink]="['top', article.url]">
+            <img class="media-object" [src]="article.img" [alt]="article.title">
+            </a>
+            <div class="media-body">
+              <h3> <a [routerLink]="['top', article.url]" class="h3">{{article.title}}</a></h3> 
+              <p class="by-author">{{article.paragraph[0]|slice:0:430}}
+
+              </p>
+            </div>
+          </li>
+        </ul>
+        <ul class="pagination">
+        <li *ngFor="let page of paginator" > 
+          <a (click)="setCurrentPage(page)" class="on_page">{{page}}</a>
+        </li>
+      </ul>
+      </div>
+    </article>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <h2>Oще полезни статии</h2>
+      <h3 *ngFor="let article of sideArticle">
+          <a [routerLink]="['top', article.url]">{{article.title}}</a>
+      </h3>
+    </div>
+  </div>
+</div>

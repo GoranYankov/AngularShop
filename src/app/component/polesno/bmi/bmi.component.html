@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="col-md-3">
+    </div>
+   
+    <div class="col-md-6 prime">
+     <h1>BMI Калкулатор</h1>
+     <p>За да изчислите индекса на телесните мазнини е нужно да попълнете всички полета.</p>
+     <form role="form">
+     <div class="col-md-3 col-sm-3">
+       <div class="form-group">
+        <input type="number"
+         class="form-control"
+          id="name" 
+          min='120'
+          name="height"
+         [(ngModel)] = "bmiForm.height"
+          placeholder="Височина в см."
+          required>
+      </div>
+
+     </div>
+     <div class="col-md-3 col-sm-3">
+        <div class="form-group">
+            <input type="number"
+             class="form-control" 
+              name="name" 
+              min="30"
+              placeholder="Килограми"
+              name="weight"
+              [(ngModel)] = "bmiForm.weight"
+              required>
+          </div>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <select class="select" name="gender"
+        [(ngModel)] = "bmiForm.gender">
+            <option name="gender" value="Жена" >Жена </option>
+            <option name="gender" value="Мъж">Мъж </option>
+          </select>    
+    </div>
+    <div class="col-md-3 col-sm-3">
+       <button class="btn-success" (click)="onClick($event)">Изчисли</button>
+    </div>
+  </form>
+  <div class="result" *ngIf="hasBmi">
+    <h3>Вашият  BMI индекс е <strong>{{bmiIndex}} - {{status}}</strong></h3>
+     <p>{{text}}</p>
+  </div>
+
+  <div class="bb-b">
+      Индексът на телесната маса (съкратено ИТМ, на английски: BMI – body mass index) e медико-биологичен показател, който служи за определяне на нормалното, здравословно тегло при хора с различен ръст и за диагностициране на затлъстяване и недохранване. Индексът на телесната маса се измерва в килограми на квадратен метър.
+      BMI служи като индикатор, но не може да се приеме като единствен независим източник за диагностициранне, на заболявания като затлъстяването.
+    <p class="onDiv"> *Стандартния BMI не взема под внимание пола на изследвания човек. В нашия калкулатор сме добавили алгоритам, който да преичисли BMI спрямо пола. Това може да доведе до разлики, ако използвате други BMI калкулатори.</p>
+    </div>
+
+    </div>
+    <div class="col-md-3 prime2">
+       <h2 *ngIf="hasBmi">Подходящи продукти за Вас</h2>
+        <div *ngFor="let product of products">
+                <a [routerLink]="['../../product', product.url]">
+                <img [src]="product.img" alt="" class="img-responsive image2">
+                <h4>{{product.type}} {{product.title}}</h4> 
+            </a>
+        </div>
+    </div>
+</div>

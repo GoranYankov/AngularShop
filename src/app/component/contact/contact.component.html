@@ -1,0 +1,76 @@
+<flash-messages></flash-messages>
+<div class="container">
+    <div class="col-md-6 prime">
+            <h2 class="phone">Може да се свържете с нас чрез:</h2>
+            <h3 class="phone">Телефон: {{telefon}}</h3>
+            <h3 class="phone">E-mail: {{mail}}</h3>
+            <h3 class="phone" >FacebookPage: <a [href]="fb" target="_blank">FB Page</a></h3>
+            <h4 class="phone">В случай, че Ви е по-удобно може да изпозлвате и контактна форма</h4>
+            <img src="./assets/imges/contact.png" alt="Телефон за връзка магазин красота и здраве">
+    </div>
+
+    <div class="col-md-1">
+    </div>
+
+  <div class="col-md-5 prime">
+      <div class="form-area" *ngIf="!succesMsg">  
+          <form role="form">
+          <br style="clear:both">
+                      <h3 style="margin-bottom: 25px; text-align: center;">Kонтактна форма</h3>
+              <div class="form-group">
+              <input type="text" 
+              class="form-control" 
+              id="name" 
+              name="name"
+              [(ngModel)]="contactForm.name"
+              #name="ngModel"
+              placeholder="Име"
+               required>
+            </div>
+            <div class="form-group">
+              <input type="text" 
+              class="form-control" 
+              name="email" 
+              [(ngModel)]="contactForm.email"
+              #email="ngModel"
+              placeholder="Email" 
+              required>
+            </div>
+            <div class="form-group">
+              <input type="text" 
+              class="form-control"
+              name="phone" 
+              [(ngModel)]="contactForm.phone"
+              #phone="ngModel"
+              placeholder="Телефон" 
+              required>
+            </div>
+            <div class="form-group">
+              <input type="text"
+               class="form-control" 
+                name="title" 
+                [(ngModel)]="contactForm.title"
+              #title="ngModel"
+                placeholder="Заглавие" required>
+            </div>
+            <div class="form-group">
+                <textarea 
+                  class="form-control" 
+                  type="textarea" 
+                  placeholder="Съобщение" 
+                  maxlength="240" 
+                  rows="8"
+                  name="msg" 
+                  [(ngModel)]="contactForm.msg"
+                  #msg="ngModel"
+                  required
+                  ></textarea>
+                          <span class="help-block"><p id="characterLeft" class="help-block ">Всички полета са задължителни*</p></span>                    
+                      </div>
+          <button type="button" (click)="onClick()" id="submit" name="submit" class="btn btn-primary pull-right">Изпрати</button>
+          </form>
+      </div>
+      <div *ngIf="succesMsg"class="alert-success">Съобщението е изпратено успешно. Възможно най-скоро наш служител ще Ви отговори!</div>
+
+  </div>
+  </div>

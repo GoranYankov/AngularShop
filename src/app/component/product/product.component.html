@@ -1,0 +1,200 @@
+<div *ngIf="findProduct">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="content" class="col-sm-12 col-md-8 product-page-row">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="thumbnails">
+                                <li class="img">
+
+                                    <img [src]="product.img" [title]="product.title" [alt]="product.title" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <h2>{{product.type}}</h2>
+                            <h1>{{product.title}}</h1>
+                            <div class="rating">
+                                <p>
+                                    <span class='first'>Произведено в {{product.country}}!</span><br>
+                                    <span class='second' [innerHtml]="product.shortDescription">
+                                       
+                                        <!-- Short description -->
+                                    </span><br />
+                                        
+                                    <span class='first'> Телефон за поръчки и информация: {{phoneNumber}}</span> 
+
+                                 </p>
+                            </div>
+                            <ul class="list-unstyled">
+    
+                                <li><strong>Наличност:</strong> <span class="danger">{{product.status}}</span></li>
+                            </ul>
+    
+    
+                            <div id="product" class="hidden-xs" *ngIf="product.quality !== 0">
+                                <div class="form-group quantity-buttons">
+                                    <div class="row">
+                                       
+                                        <div class="col-sm-4 col-xs-4 first-col" >
+                                            <button (click)="onClickButtonBy($event)"
+                                                type="button" 
+                                                id="button-cart-2"
+                                                class="btn btn-primary btn-lg btn-block"
+                                                [value]="product._id">
+                                                Купи
+                                            </button>
+                                        </div>
+
+
+                                        <div class="col-sm-4 col-xs-4  second-col">
+                                                <button type="button" class="decrementValue js-qty__adjust js-qty__adjust--minus icon-fallback-text" (click)="decrase()">
+                                                    <span class="icon icon-minus" aria-hidden="true"></span>
+                                                    <span class="fallback-text">−</span>
+                                                </button>
+                                                <input type="text"  name="quantity" [value]="qty" size="2" id="input-quantity" class="form-control" (change)="onChange($event)" />
+                                                <button type="button" class="incrementValue js-qty__adjust js-qty__adjust--plus icon-fallback-text" (click)="incrase()">
+                                                    <span class="icon icon-plus" aria-hidden="true"></span>
+                                                    <span class="fallback-text">+</span>
+                                                </button>
+                                            </div>
+    
+                                        <div class="col-sm-4 col-xs-4 price-spacial">
+                                            <ul class="list-inline">
+                                                <li>
+                                                    <span style="text-decoration: line-through;" *ngIf="product.oldPrice !== 0">{{product.oldPrice | number:'2.2-5'}} лв.</span>
+                                                </li>
+
+                                                <li>
+                                                    <h2>{{product.price | number:'2.2-5'}} лв.</h2>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!--Tabs -->
+                            <ul class="nav nav-tabs">
+                                   
+                                <li [class]="ClassDescription" (click)="onClick($event)">
+                                    <a href="#" data-toggle="tab">Описание</a>
+                                </li>
+                                <li [class]="ClassContent" (click)="onClick($event)">
+                                    <a href="#" data-toggle="tab" (click)="onClick($event)">
+                                       Съдържание </a>
+                                </li>
+                                <li  [class]="ClassUpotreba" (click)="onClick($event)">
+                                    <a href="#" data-toggle="tab" (click)="onClick($event)">Начин на прием</a>
+                                </li>
+                            </ul>
+    
+                            <div class="tab-content">
+                                <div id="tab-description" class="no-padding" >
+                                    <div class="non-mobile-desc1">
+                                        <div class="tab-pane active" *ngIf="description">
+                                                <p>
+                                                  <strong>Предназначение на продукта</strong>
+                                             </p> 
+                                                    <ul>
+                                                        <li *ngFor="let predimstvo of product.prednaznachenie">
+                                                            <span style="font-weight: bold;">
+                                                                    <i class="fa fa-check color" aria-hidden="true"></i>
+                                                                    {{predimstvo}}
+                                                                <br>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                            <p [innerHtml]="product.description">
+                                               
+                                            <p>     
+                                        </div>
+                                        <div class="tab-pane active" *ngIf="content">
+                                                <p [innerHtml]="product.sydyrjanie"></p>
+                                        </div>
+                                        <div class="tab-pane active" *ngIf="upotreba">
+                                            <p [innerHtml]="product.upotreba"></p>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+    
+    
+                        </div>
+                    </div>
+                </div>
+                <!-- Fast Order -->
+                <div class="col-sm-6 col-md-4" *ngIf="product.quality !== 0">
+                    <div class="fast-order">
+                        <h3 class="text-center">
+                            <strong>Бърза поръчка</strong>
+                        </h3>
+                        <br> 
+                        <form>
+                            <label for="name">Име и фамилия
+                                <span class="red">*</span>
+                            </label>
+                            <small class="err" [hidden]="name.valid || name.pristine">
+                                *Въведете име и фамилия.
+                            </small>
+                            <input id="name" type="text" class="form-control" name="name" name="name" [(ngModel)]="orderForm.name" #name="ngModel" minlength="5">
+                            <label for="phone">Телефон
+                                <span class="red">*</span>
+                            </label>
+                            <small class="err" [hidden]="phone.valid || phone.pristine">
+                                *Телефоният номер трябва да започва с 0 и да е между 9 и 10 цифри
+                            </small>
+                            <input id="phone" type="text" class="form-control" name="phone" [(ngModel)]="orderForm.phone" #phone="ngModel" minlength="9"
+                                maxlength="10">
+    
+    
+                            <label for="email">E-mail
+                                <span class="red">*</span>
+                            </label>
+                            <input id="email" type="text" class="form-control" name="email" [(ngModel)]="orderForm.email">
+    
+                            <label for="city">Град / Село
+                                <span class="red">*</span>
+                            </label>
+                            <input id="city" type="text" class="form-control" name="city" name="city" [(ngModel)]="orderForm.city" #city="ngModel">
+                            <label>Доставка до:
+                                <span class="red">*</span>
+                            </label>
+                            <label class="adress" for="adress"></label>
+                            <input type="radio" (click)="getPruce($event)" name="adress" value="Адрес" id="adress" checked="checked" name="typeOfDelivary" [(ngModel)]="orderForm.typeOfDelivary"
+                                #typeOfDelivary="ngModel"> Доставка до посочен от вас Адрес
+                            <br/>
+                            <input type="radio" (click)="getPruce($event)" name="adress" value="Офис" id="adress" 
+                                name="typeOfDelivary" [(ngModel)]="orderForm.typeOfDelivary"
+                                #typeOfDelivary="ngModel" 
+                                checked="checked">Доставка до офис на фирма Еконт
+    
+                            <textarea name="address" [(ngModel)]="orderForm.address" #address="ngModel" id="delivery" class="form-control" name="delivery"
+                                placeholder="Моля въведете точен адрес / офис"></textarea>
+                            <span>Обобщена Поръчка</span>
+                            <div class="row">
+                
+                                    <div class="col-sm-4 col-xs-4 first">Цена:</div>
+                                    <div class="col-sm-8 col-xs-8 second"> {{realPrice | number:'2.2-5'}} лв. </div>
+
+                             </div> 
+    
+    
+                             <div class="row">
+                                    <div class="col-sm-4 col-xs-4  first">Доставка:</div>
+                                    <div class="col-sm-8 col-xs-8  second"> {{delviaryPrice | number:'1.2-5'}} лв. </div>
+                             </div> 
+                                   <hr>
+                             <div class="row">
+                                    <div class="col-sm-4 col-xs-4  first">Крайна цена:</div>
+                                    <div class="col-sm-8 col-xs-8  second"> {{orderPrice| number:'2.2-5'}} лв. </div>
+                             </div> 
+                             <flash-messages></flash-messages>
+                            <button class="btn btn-default" (click)="onSubmit()">Поръчай</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

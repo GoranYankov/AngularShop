@@ -1,0 +1,19 @@
+.true {
+    background: #9ef77b;
+    font-weight: bold;
+    
+}
+
+.false {
+    background: #e76969;
+    color: white;
+}
+
+.false button {
+    color: rgb(112, 110, 110);
+
+}
+
+.true button {
+    font-weight: normal;
+}

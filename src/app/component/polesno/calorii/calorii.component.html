@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="col-md-3">
+    </div>
+   
+    <div class="col-md-6 prime">
+     <h1>Калкулатор за дневните нужди от калории</h1>
+     <p>За да изчислите вашата дневна нужда от калории е нужно да попълнете всички полета.</p>
+     <form role="form">
+     <div class="col-md-4 col-sm-4">
+       <div class="form-group">
+        <input type="number"
+         class="form-control"
+          id="name" 
+          name="height"
+         [(ngModel)] = "calcForm.height"
+          placeholder="Височина в см."
+          required>
+      </div>
+     </div>
+     <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+            <input type="number"
+             class="form-control" 
+              placeholder="Килограми"
+              name="weight"
+              [(ngModel)] = "calcForm.weight"
+              required>
+          </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+            <input type="number"
+             class="form-control" 
+              placeholder="Години"
+              name="age"
+              [(ngModel)] = "calcForm.age"
+              required>
+          </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-3"></div>
+    <div class="col-md-4 col-sm-4">
+        <select class="select" name="activ"
+        [(ngModel)] = "calcForm.activ">
+            <option name="activ" value="Ниска дневна активност" >Ниска дневна активност</option>
+            <option name="activ" value="Слаба дневна активност" >Слаба дневна активност</option>
+            <option name="activ" value="Умерена дневна активност" >Умерена дневна активност</option>
+            <option name="activ" value="Висока дневна активност" >Висока дневна активност</option>
+          </select>    
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <select class="select" name="gender"
+        [(ngModel)] = "calcForm.gender">
+            <option name="gender" value="Жена" >Жена </option>
+            <option name="gender" value="Мъж">Мъж </option>
+          </select>    
+    </div>
+    </div>
+   
+
+    <div class="col-md-12 col-sm-12">
+       <button class="btn-success" (click)="onClick($event)">Изчисли</button>
+    </div>
+  </form>
+  <div class="result" *ngIf="hasCalory">
+    <h3>Според формулата на Харис-Бенедикт вие се нуждаете от <strong>{{status}}</strong> калории на ден</h3>
+  </div>
+
+  <div class="bb-b">
+      1. Ниска дневна активност - Слаба ежедневна подвижност, характерна за повечето хора, които работят на бюро и не спортувата.<br>
+      2. Слаба дневна активност - Характерна също за хората, които прекарват по-голямата си част от ежедневито седнали или легнали, но изминават на ден поне 6000 крачки или поне 2 път и седмично спортуват. <br>
+      3. Умерена дневна активност - Работата им е свързана с движение и активност или посещават спортни мероприятия поне 3-5 пъти седмично. <br>
+      4. Висока дневна активност - Интензивна и динамична работна среда или посещение във фитнес зала повече от 5 пъти седмично.
+    <p class="onDiv"> *Mетода е ориантировачен и не бива да се приема за медицински точен. Най-дорбе е да се консултирате с Диетолог или лекар за изграждане на хранителният ви план.</p>
+    </div>
+
+    </div>
+    <div class="col-md-3 prime2">
+    </div>
+</div>

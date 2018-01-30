@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-8">
+      <article>
+      <div class="col-md-12 col-lg-12" >
+        <ul class="media-list main-list">
+          <li class="media">
+            <img class="media-object" [src]="article.img" [alt]="article.title" class='responsive'>
+            <div class="media-body">
+              <h1>{{article.title}}</h1> 
+              <p class="by-author" *ngFor='let p of article.paragraph'>
+                  <span [innerHTML]="p"></span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </article>
+    </div>
+    <div class="col-md-4 col-sm-4">
+
+      <h2>Избрани продукти</h2>
+      <div *ngFor="let product of products" class="prime">
+              <a [routerLink]="['../../../product', product.url]">
+              <img [src]="product.img" alt="" class="img-responsive image2">
+              <h4>{{product.type}} {{product.title}}</h4> 
+              <p>{{product.shortDescription}}</p>
+
+          </a>
+      </div>
+    </div>
+  </div>
+</div>

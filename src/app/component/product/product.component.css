@@ -1,0 +1,40 @@
+.col-xs-4, .col-sm-4, .col-sm-8, .col-xs-8 {
+    color:black;
+    font-weight: 888;
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 2px
+}
+
+span.first {
+    color: #D879A1;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+span.second {
+    font-size:20px;
+}
+
+span.danger {
+    color:red;
+    font-weight: bold;
+}
+
+.color {
+    color: #02af02;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    margin-bottom: 10px;
+}
+.img {
+    text-align: center;
+    
+}

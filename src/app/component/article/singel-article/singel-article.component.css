@@ -1,0 +1,33 @@
+img {
+    max-width: 100%;
+    margin: 20px 0;
+}
+
+.prime{
+    margin-top: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 5px 10px 20px #888888;
+}
+
+.prime:hover {
+    box-shadow: 5px 5px 10px #f5afe3;
+    cursor: pointer;
+}
+
+h4 {
+    margin-bottom: 5px;
+    font-size:1.5rem;
+    font-weight: 600;
+    padding: 0 10px;
+    
+}
+
+p {
+    color: rgb(131, 131, 131);
+    text-align: justify;
+    padding: 0;
+
+}
+

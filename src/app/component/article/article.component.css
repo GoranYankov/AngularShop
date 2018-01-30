@@ -1,0 +1,23 @@
+article {
+    margin-top: 25px;
+}
+.media-object {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
+}
+
+.on_page:hover {
+    background: cornflowerblue;
+    cursor: pointer;
+    color:black;
+}
+span {
+    padding:0;
+    font-size: 1.2rem;
+}
+.h3 {
+    font-size: 2rem;    
+}

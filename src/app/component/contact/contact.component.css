@@ -1,0 +1,35 @@
+
+h3.phone {
+    margin: 5px 0 0 0;
+}
+h4.phone {
+    font-size: 1rem;
+    margin: 25px 0 0 0;
+}
+
+h2.phone {
+    font-size:2rem;
+    font-weight: bold;
+}
+
+.prime {
+    margin-top: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 5px 10px 20px #888888;
+    cursor: default;
+}
+
+img {
+    margin-top: 50px;
+    padding-bottom: 70px;
+    max-width: 100%;
+}
+
+.alert-success {
+    margin:20px 5px;
+    font-weight: bold;
+}
+
+

@@ -1,0 +1,42 @@
+<footer>
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-3">
+            <a [routerLink]="['']">
+                  <img class="footer-logo" alt="Магазин красота и здраве" src="./assets/imges/zdrave-logo.png">
+              </a>
+          </div>
+          <div class="col-sm-3">
+              <h3>Информация</h3>
+              <ul class="footer-nav">
+                  <li><a [routerLink]="['plastane']">Начини на плащане</a></li>
+                  <li><a [routerLink]="['delivary']">Доставка</a></li>
+                  <li><a [routerLink]="['usloviq']" target="_blank">Общи условия за ползване</a></li>
+              </ul>
+          </div>
+          <div class="col-sm-3">
+              <h3>Обслужване на клиенти</h3>
+              <ul class="footer-nav">
+                  <li><a >Свържете се с нас</a></li>
+                  <li><a ><i class="fa fa-envelope" aria-hidden="true"></i> {{delivary.mail}}</a></li>
+                  <li><a ><i class="fa fa-phone" aria-hidden="true"></i> {{delivary.phone}}</a></li>
+              </ul>
+          </div>
+          <div class="col-sm-3">
+              <h3>Моят профил</h3>
+              <ul class="footer-nav">
+                  <li><a [routerLink]="['login']">Моят профил</a></li>
+                  <li><a [routerLink]="['']">История на поръчките</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-6 col-sm-offset-6 text-right nopadding">
+              <br>
+                <a [routerLink]="['']">
+              <img class="img-responsive" src="./assets/imges/zdrave-logo.png">
+                </a>
+          </div>
+      </div>
+  </div>
+</footer>
